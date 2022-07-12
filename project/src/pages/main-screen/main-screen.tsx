@@ -7,9 +7,7 @@ function MainScreen(): JSX.Element {
 
   const length = 20;
 
-  const card: JSX.Element[] = new Array(length);
-
-  card.fill(<FilmCard />);
+  const cards = Array.from({ length }, () => <FilmCard />);
 
   return (
     <>
@@ -52,7 +50,7 @@ function MainScreen(): JSX.Element {
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <Header login="Sign out"/>
+        <Header login="Sign out" />
 
         <PromoCard title='The Grand Budapest Hotel' genre='Drama' year={2014} />
 
@@ -96,7 +94,7 @@ function MainScreen(): JSX.Element {
           </ul>
 
           <div className="catalog__films-list">
-            {card.map((film) => film)}
+            {cards.map((film) => film)}
           </div>
 
           <div className="catalog__more">
