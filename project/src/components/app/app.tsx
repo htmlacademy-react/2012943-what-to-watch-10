@@ -17,11 +17,16 @@ function App(): JSX.Element {
         <Route path={AppRoute.Main} element={<MainScreen />} />
         <Route path={AppRoute.SignIn} element={<SignIn />} />
         <Route path={AppRoute.Film} element={<Film />} />
-        <Route path={AppRoute.AddReview} element={<Review />} />
         <Route path={AppRoute.Player} element={<Player />} />
         <Route path={AppRoute.MyList} element={
           <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
             <MyList />
+          </PrivateRoute>
+        }
+        />
+        <Route path={AppRoute.AddReview} element={
+          <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
+            <Review />
           </PrivateRoute>
         }
         />
