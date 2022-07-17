@@ -1,14 +1,15 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import PromoCard from '../../components/promo-card/promo-card';
-import FilmCard from '../../components/film-card/film-card';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
+import { Films } from '../../types/film';
+import FilmList from '../../components/film-list/film-list';
 
-function MainScreen(): JSX.Element {
+type MainScreenProps = {
+  films: Films,
+};
 
-  const length = 20;
-
-  const cards = Array.from({ length }, () => <FilmCard />);
-
+function MainScreen({films}: MainScreenProps): JSX.Element {
   return (
     <>
       <div className="visually-hidden">
@@ -92,10 +93,7 @@ function MainScreen(): JSX.Element {
               <a href="#" className="catalog__genres-link">Thrillers</a>
             </li>
           </ul>
-
-          <div className="catalog__films-list">
-            {cards.map((film) => film)}
-          </div>
+          <FilmList films={films}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

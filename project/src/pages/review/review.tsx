@@ -1,29 +1,37 @@
-function AddReview(): JSX.Element {
+import { Film } from '../../types/film';
+import { Link } from 'react-router-dom';
+import { AppRoute } from '../../const';
+
+type ReviewProps = {
+  film: Film,
+}
+
+function AddReview({ film }: ReviewProps): JSX.Element {
   return (
-    <section className="film-card film-card--full">
+    <section className="film-card film-card--full " id={film.id}>
       <div className="film-card__header">
         <div className="film-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+          <img src={film.bgImg} alt={film.alt} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
 
         <header className="page-header">
           <div className="logo">
-            <a href="main.html" className="logo__link">
+            <Link to={AppRoute.Main} className="logo__link">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
-            </a>
+            </Link>
           </div>
 
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <a href="film-page.html" className="breadcrumbs__link">The Grand Budapest Hotel</a>
+                <Link to={AppRoute.Film} className="breadcrumbs__link">{film.title}</Link>
               </li>
               <li className="breadcrumbs__item">
-                <a className="breadcrumbs__link">Add review</a>
+                <Link to={AppRoute.AddReview} className="breadcrumbs__link">Add review</Link>
               </li>
             </ul>
           </nav>
@@ -35,7 +43,7 @@ function AddReview(): JSX.Element {
               </div>
             </li>
             <li className="user-block__item">
-              <a className="user-block__link">Sign out</a>
+              <Link to={AppRoute.Main} className="user-block__link">Sign out</Link>
             </li>
           </ul>
         </header>
