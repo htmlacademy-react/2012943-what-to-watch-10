@@ -1,8 +1,9 @@
+import { nanoid } from '@reduxjs/toolkit';
 import { Films } from '../types/film';
 
 export const films: Films = [
   {
-    id: `${Math.round(Math.random() * 100)}`,
+    id: nanoid(),
     img: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
     bgImg: 'img/bg-the-grand-budapest-hotel.jpg',
     alt: 'Fantastic Beasts: The Crimes of Grindelwald',
@@ -11,7 +12,7 @@ export const films: Films = [
   },
 
   {
-    id: `${Math.round(Math.random() * 100)}`,
+    id: nanoid(),
     img: 'img/bohemian-rhapsody.jpg',
     bgImg: 'img/bg-the-grand-budapest-hotel.jpg',
     alt: 'Bohemian Rhapsody',
@@ -20,7 +21,7 @@ export const films: Films = [
   },
 
   {
-    id: `${Math.round(Math.random() * 100)}`,
+    id: nanoid(),
     img: 'img/macbeth.jpg',
     bgImg: 'img/bg-the-grand-budapest-hotel.jpg',
     alt: 'Macbeth',
@@ -29,7 +30,7 @@ export const films: Films = [
   },
 
   {
-    id: `${Math.round(Math.random() * 100)}`,
+    id: nanoid(),
     img: 'img/aviator.jpg',
     bgImg: 'img/bg-the-grand-budapest-hotel.jpg',
     alt: 'Aviator',
@@ -38,7 +39,7 @@ export const films: Films = [
   },
 
   {
-    id: `${Math.round(Math.random() * 100)}`,
+    id: nanoid(),
     img: 'img/we-need-to-talk-about-kevin.jpg',
     bgImg: 'img/bg-the-grand-budapest-hotel.jpg',
     alt: 'We need to talk about Kevin',
@@ -47,7 +48,7 @@ export const films: Films = [
   },
 
   {
-    id: `${Math.round(Math.random() * 100)}`,
+    id: nanoid(),
     img: 'img/what-we-do-in-the-shadows.jpg',
     bgImg: 'img/bg-the-grand-budapest-hotel.jpg',
     alt: 'What We Do in the Shadows',
@@ -56,7 +57,7 @@ export const films: Films = [
   },
 
   {
-    id: `${Math.round(Math.random() * 100)}`,
+    id: nanoid(),
     img: 'img/revenant.jpg',
     bgImg: 'img/bg-the-grand-budapest-hotel.jpg',
     alt: 'Revenant',
@@ -65,7 +66,7 @@ export const films: Films = [
   },
 
   {
-    id: `${Math.round(Math.random() * 100)}`,
+    id: nanoid(),
     img: 'img/johnny-english.jpg',
     bgImg: 'img/bg-the-grand-budapest-hotel.jpg',
     alt: 'Johnny English',

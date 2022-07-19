@@ -13,7 +13,7 @@ function FilmCard({ film, onVideo }: FilmCardScreenProps): JSX.Element {
   return (
     <article className="small-film-card catalog__films-card" id={film.id}>
       <div className="small-film-card__image">
-        <img src={film.img} alt={film.alt} width="280" height="175" onMouseOver={() => onVideo()} onClick={() => navigate(AppRoute.Film)} />
+        <img src={film.img} alt={film.alt} width="280" height="175" onMouseOver={onVideo} onClick={() => navigate(AppRoute.Film)} />
       </div>
       <h3 className="small-film-card__title">
         <Link to={AppRoute.Film} className="small-film-card__link">{film.title}</Link>

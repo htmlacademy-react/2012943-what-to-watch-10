@@ -7,11 +7,11 @@ type FilmListProps = {
 };
 
 function FilmList ({films}:FilmListProps):JSX.Element {
-  const [id, setId] = useState();
+  const [id, setId] = useState <number>();
 
   return (
     <div className="catalog__films-list">
-      {films.map((film) => <FilmCard key={film.id} film={film} onVideo={() => setId(() => id)}/>)}
+      {films.map((film) => <FilmCard key={film.id} film={film} onVideo={() => setId(id)}/>)}
     </div>
   );
 }
