@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, Fragment, useState } from 'react';
 import { Film } from '../../types/film';
 
 type FormCommentProps = {
@@ -21,32 +21,28 @@ function FormComment({ film }: FormCommentProps): JSX.Element {
     setForm({ ...form, [name]: value });
   };
 
-  const createField = (counter: number):JSX.Element => (
-    <>
+  const createField = (counter: number): JSX.Element => (
+    <Fragment key={counter}>
       <input className="rating__input" id={`star-${counter}`} type="radio" name="rating" value={`${counter}`} onChange={formChangeHandler} />
       <label className="rating__label" htmlFor={`star-${counter}`}>Rating {counter}</label>
-    </>
+    </Fragment>
   );
 
-  const createRaiting = ():JSX.Element => {
-    let increment: JSX.Element;
-
-    for (let i = 0; i < 10; i++) {
-      increment += createField(i);
-    }
-    return increment;
-  }
+  const createRatingStars = (): JSX.Element[] => {
+    const stars = Array.from({ length: 10 }, (_, i) => createField(i));
+    return stars;
+  };
 
   return (
     <form action="#" className="add-review__form" onSubmit={submitHandler}>
       <div className="rating">
         <div className="rating__stars">
-
+          {createRatingStars()}
         </div>
       </div>
 
       <div className="add-review__text">
-        <textarea className="add-review__textarea" name="reviewtext" id="review-text" placeholder="Review text" value={form.reviewtext} onChange={formChangeHandle}></textarea>
+        <textarea className="add-review__textarea" name="reviewtext" id="review-text" placeholder="Review text" value={form.reviewtext} onChange={formChangeHandler}></textarea>
         <div className="add-review__submit">
           <button className="add-review__btn" type="submit" >Post</button>
         </div>
