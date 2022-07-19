@@ -1,7 +1,11 @@
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
+import { AppRoute } from '../../const';
 
-function Film(): JSX.Element {
+function FilmInfo(): JSX.Element {
+  const navigate = useNavigate();
+
   return (
     <>
       <section className="film-card film-card--full">
@@ -11,7 +15,7 @@ function Film(): JSX.Element {
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
-          <Header login="Sign out"/>
+          <Header login="Sign out" />
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
@@ -22,20 +26,20 @@ function Film(): JSX.Element {
               </p>
 
               <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button">
+                <button className="btn btn--play film-card__button" type="button" onClick={() => navigate(AppRoute.Player)}>
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
                   <span>Play</span>
                 </button>
-                <button className="btn btn--list film-card__button" type="button">
+                <button className="btn btn--list film-card__button" type="button" onClick={() => navigate(AppRoute.MyList)}>
                   <svg viewBox="0 0 19 20" width="19" height="20">
                     <use xlinkHref="#add"></use>
                   </svg>
                   <span>My list</span>
                   <span className="film-card__count">9</span>
                 </button>
-                <a href="add-review.html" className="btn film-card__button">Add review</a>
+                <Link to={AppRoute.AddReview} className="btn film-card__button">Add review</Link>
               </div>
             </div>
           </div>
@@ -94,7 +98,7 @@ function Film(): JSX.Element {
                 <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
               </div>
               <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Fantastic Beasts: The Crimes of Grindelwald</a>
+                <Link to={AppRoute.Film} className="small-film-card__link">Fantastic Beasts: The Crimes of Grindelwald</Link>
               </h3>
             </article>
 
@@ -103,7 +107,7 @@ function Film(): JSX.Element {
                 <img src="img/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" width="280" height="175" />
               </div>
               <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Bohemian Rhapsody</a>
+                <Link to={AppRoute.Film} className="small-film-card__link">Bohemian Rhapsody</Link>
               </h3>
             </article>
 
@@ -112,7 +116,7 @@ function Film(): JSX.Element {
                 <img src="img/macbeth.jpg" alt="Macbeth" width="280" height="175" />
               </div>
               <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Macbeth</a>
+                <Link to={AppRoute.Film} className="small-film-card__link">Macbeth</Link>
               </h3>
             </article>
 
@@ -121,7 +125,7 @@ function Film(): JSX.Element {
                 <img src="img/aviator.jpg" alt="Aviator" width="280" height="175" />
               </div>
               <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Aviator</a>
+                <Link to={AppRoute.Film} className="small-film-card__link">Aviator</Link>
               </h3>
             </article>
           </div>
@@ -132,4 +136,4 @@ function Film(): JSX.Element {
   );
 }
 
-export default Film;
+export default FilmInfo;

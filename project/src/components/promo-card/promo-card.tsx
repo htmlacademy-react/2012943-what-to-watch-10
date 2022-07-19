@@ -1,3 +1,6 @@
+import { useNavigate } from 'react-router-dom';
+import { AppRoute } from '../../const';
+
 type PromoCardProps = {
   title: string,
   genre: string,
@@ -6,6 +9,7 @@ type PromoCardProps = {
 
 
 function PromoCard({ title, genre, year }: PromoCardProps): JSX.Element {
+  const navigate = useNavigate();
   return (
     <div className="film-card__wrap">
       <div className="film-card__info">
@@ -21,13 +25,13 @@ function PromoCard({ title, genre, year }: PromoCardProps): JSX.Element {
           </p>
 
           <div className="film-card__buttons">
-            <button className="btn btn--play film-card__button" type="button">
+            <button className="btn btn--play film-card__button" type="button" onClick={() => navigate(AppRoute.Player)}>
               <svg viewBox="0 0 19 19" width="19" height="19">
                 <use xlinkHref="#play-s"></use>
               </svg>
               <span>Play</span>
             </button>
-            <button className="btn btn--list film-card__button" type="button">
+            <button className="btn btn--list film-card__button" type="button" onClick={() => navigate(AppRoute.MyList)}>
               <svg viewBox="0 0 19 20" width="19" height="20">
                 <use xlinkHref="#add"></use>
               </svg>
