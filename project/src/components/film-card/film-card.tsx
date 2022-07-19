@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { generatePath, Link, useNavigate } from 'react-router-dom';
 import { AppRoute } from '../../const';
 import { Film } from '../../types/film';
 
@@ -16,7 +16,7 @@ function FilmCard({ film, onVideo }: FilmCardScreenProps): JSX.Element {
         <img src={film.img} alt={film.alt} width="280" height="175" onMouseOver={onVideo} onClick={() => navigate(AppRoute.Film)} />
       </div>
       <h3 className="small-film-card__title">
-        <Link to={AppRoute.Film} className="small-film-card__link">{film.title}</Link>
+        <Link to={generatePath(AppRoute.Film, { id: film.id })} className="small-film-card__link">{film.title}</Link>
       </h3>
     </article>
   );
