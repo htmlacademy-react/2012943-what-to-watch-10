@@ -20,29 +20,19 @@ function FilmCard({ film }: FilmCardScreenProps): JSX.Element {
     setIsShowing(false);
   };
 
-  if (isShowing) {
-    return (
-      <article className="small-film-card catalog__films-card" id={film.id} >
-        <div className="small-film-card__image" onMouseOver={mouseOver} onMouseLeave={mouseLeave}>
+  return (
+    <article className="small-film-card catalog__films-card" id={film.id} >
+      <div className="small-film-card__image" onMouseOver={mouseOver} onMouseLeave={mouseLeave}>
+        {isShowing ?
           <Videoplayer film={film} autoplay />
-        </div>
-        <h3 className="small-film-card__title">
-          <Link to={generatePath(AppRoute.Film, { id: film.id })} className="small-film-card__link">{film.title}</Link>
-        </h3>
-      </article>
-    );
-  } else {
-    return (
-      <article className="small-film-card catalog__films-card" id={film.id} >
-        <div className="small-film-card__image" onMouseOver={mouseOver} onMouseLeave={mouseLeave}>
-          <img src={film.img} alt={film.alt} width="280" height="175" onClick={() => navigate(AppRoute.Film)} />
-        </div>
-        <h3 className="small-film-card__title">
-          <Link to={generatePath(AppRoute.Film, { id: film.id })} className="small-film-card__link">{film.title}</Link>
-        </h3>
-      </article>
-    );
-  }
+          : <img src={film.img} alt={film.alt} width="280" height="175" onClick={() => navigate(AppRoute.Film)} />}
+      </div>
+      <h3 className="small-film-card__title">
+        <Link to={generatePath(AppRoute.Film, { id: film.id })} className="small-film-card__link">{film.title}</Link>
+      </h3>
+    </article>
+  );
 }
+
 
 export default FilmCard;

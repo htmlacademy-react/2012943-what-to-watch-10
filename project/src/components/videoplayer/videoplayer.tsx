@@ -5,12 +5,10 @@ type VideoPlayerProps = {
   autoplay: boolean,
 }
 
-function Videoplayer ({film, autoplay}:VideoPlayerProps):JSX.Element {
+function Videoplayer({ film, autoplay }: VideoPlayerProps): JSX.Element {
   return (
     <video src={film.video} className="player__video" muted autoPlay={autoplay}></video>
   );
 }
-
-// poster="img/player-poster.jpg"
 
 export default Videoplayer;
