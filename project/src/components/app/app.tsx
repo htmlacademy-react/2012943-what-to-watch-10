@@ -21,7 +21,7 @@ function App({ films }: AppScreenProps): JSX.Element {
         <Route path={AppRoute.Main} element={<MainScreen films={films} />} />
         <Route path={AppRoute.SignIn} element={<SignIn />} />
         <Route path={AppRoute.Film} element={<FilmInfo />} />
-        <Route path={AppRoute.Player} element={<Player film={films[0]} />} />
+        <Route path={AppRoute.Player} element={<Player film={films[0]} autoplay />} />
         <Route path={AppRoute.MyList} element={
           <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
             <MyList films={films} />

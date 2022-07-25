@@ -1,14 +1,30 @@
+import { useEffect, useRef, useState } from 'react';
+import Videoplayer from '../../components/videoplayer/videoplayer';
 import { Film } from '../../types/film';
 
 type PlayerProps = {
-  film: Film
+  film: Film,
+  autoplay: boolean,
 }
 
-function Player({ film }: PlayerProps): JSX.Element {
+function Player({ film, autoplay }: PlayerProps): JSX.Element {
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(autoplay);
+
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    if (videoRef.current === null) {
+      return;
+    }
+
+    videoRef.current?.addEventListener('loadeddata', () => setIsLoading(false));
+  });
+
   return (
     <div className="player">
-      <video src={film.video} className="player__video" poster="img/player-poster.jpg"></video>
-
+      <Videoplayer film={film} autoplay/>
       <button type="button" className="player__exit">Exit</button>
 
       <div className="player__controls">
@@ -21,7 +37,7 @@ function Player({ film }: PlayerProps): JSX.Element {
         </div>
 
         <div className="player__controls-row">
-          <button type="button" className="player__play">
+          <button type="button" className={`player__${isPlaying ? 'pause' : 'play'}`} disabled={isLoading} onClick={() => setIsPlaying(!isPlaying)}>
             <svg viewBox="0 0 19 19" width="19" height="19">
               <use xlinkHref="#play-s"></use>
             </svg>
