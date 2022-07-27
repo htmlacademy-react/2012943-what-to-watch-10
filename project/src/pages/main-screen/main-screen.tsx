@@ -2,14 +2,15 @@
 import PromoCard from '../../components/promo-card/promo-card';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
-import { Films } from '../../types/film';
+import { Film, Films } from '../../types/film';
 import FilmList from '../../components/film-list/film-list';
 
 type MainScreenProps = {
   films: Films,
+  film: Film,
 };
 
-function MainScreen({films}: MainScreenProps): JSX.Element {
+function MainScreen({ films, film }: MainScreenProps): JSX.Element {
   return (
     <>
       <div className="visually-hidden">
@@ -46,14 +47,14 @@ function MainScreen({films}: MainScreenProps): JSX.Element {
 
       <section className="film-card">
         <div className="film-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+          <img src={film.backgroundImage} alt={film.name} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
 
         <Header login="Sign out" />
 
-        <PromoCard title='The Grand Budapest Hotel' genre='Drama' year={2014} />
+        <PromoCard title={film.name} genre={film.genre} year={film.released} />
 
       </section>
 
@@ -93,7 +94,7 @@ function MainScreen({films}: MainScreenProps): JSX.Element {
               <a href="#" className="catalog__genres-link">Thrillers</a>
             </li>
           </ul>
-          <FilmList films={films}/>
+          <FilmList films={films} />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

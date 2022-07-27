@@ -6,21 +6,24 @@ import MyList from '../../pages/my-list/my-list';
 import Player from '../../pages/player/player';
 import AddReview from '../../pages/review/review';
 import SignIn from '../../pages/sign-in/sign-in';
-import { Films } from '../../types/film';
+import { Comments } from '../../types/comment';
+import { Film, Films } from '../../types/film';
 import NotFound from '../not-found/not-found';
 import PrivateRoute from '../private-route/private-route';
 
 type AppScreenProps = {
-  films: Films
+  films: Films,
+  film: Film,
+  comments: Comments,
 }
 
-function App({ films }: AppScreenProps): JSX.Element {
+function App({ films, film, comments }: AppScreenProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={AppRoute.Main} element={<MainScreen films={films} />} />
+        <Route path={AppRoute.Main} element={<MainScreen films={films} film={film} />} />
         <Route path={AppRoute.SignIn} element={<SignIn />} />
-        <Route path={AppRoute.Film} element={<FilmInfo />} />
+        <Route path={AppRoute.Film} element={<FilmInfo film={film} films={films} comments={comments} />} />
         <Route path={AppRoute.Player} element={<Player film={films[0]} autoplay />} />
         <Route path={AppRoute.MyList} element={
           <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>

@@ -25,10 +25,10 @@ function FilmCard({ film }: FilmCardScreenProps): JSX.Element {
       <div className="small-film-card__image" onMouseOver={mouseOver} onMouseLeave={mouseLeave}>
         {isShowing ?
           <Videoplayer film={film} autoplay />
-          : <img src={film.img} alt={film.alt} width="280" height="175" onClick={() => navigate(AppRoute.Film)} />}
+          : <img src={film.previewImage} alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" onClick={() => navigate(AppRoute.Film)} />}
       </div>
       <h3 className="small-film-card__title">
-        <Link to={generatePath(AppRoute.Film, { id: film.id })} className="small-film-card__link">{film.title}</Link>
+        <Link to={generatePath(AppRoute.Film, { id: film.id })} className="small-film-card__link">{film.name}</Link>
       </h3>
     </article>
   );

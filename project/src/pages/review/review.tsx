@@ -13,7 +13,7 @@ function AddReview({ film }: ReviewProps): JSX.Element {
     <section className="film-card film-card--full " id={film.id}>
       <div className="film-card__header">
         <div className="film-card__bg">
-          <img src={film.bgImg} alt={film.alt} />
+          <img src={film.backgroundImage} alt='film' />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -26,7 +26,7 @@ function AddReview({ film }: ReviewProps): JSX.Element {
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <Link to={AppRoute.Film} className="breadcrumbs__link">{film.title}</Link>
+                <Link to={AppRoute.Film} className="breadcrumbs__link">{film.name}</Link>
               </li>
               <li className="breadcrumbs__item">
                 <Link to={AppRoute.AddReview} className="breadcrumbs__link">Add review</Link>
@@ -47,12 +47,12 @@ function AddReview({ film }: ReviewProps): JSX.Element {
         </header>
 
         <div className="film-card__poster film-card__poster--small">
-          <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+          <img src={film.posterImage} alt="The Grand Budapest Hotel poster" width="218" height="327" />
         </div>
       </div>
 
       <div className="add-review">
-        <FormComment film={film}/>
+        <FormComment film={film} />
       </div>
     </section>
   );
