@@ -1,9 +1,8 @@
-import { nanoid } from '@reduxjs/toolkit';
 import { Films } from '../types/film';
 
 export const films: Films = [
   {
-    id: nanoid(),
+    id: 1,
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
     posterImage: 'img/the-grand-budapest-hotel-poster.jpg',
     previewImage: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
@@ -23,7 +22,7 @@ export const films: Films = [
   },
 
   {
-    id: nanoid(),
+    id: 2,
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
     posterImage: 'img/the-grand-budapest-hotel-poster.jpg',
     previewImage: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
@@ -43,7 +42,7 @@ export const films: Films = [
   },
 
   {
-    id: nanoid(),
+    id: 3,
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
     posterImage: 'img/the-grand-budapest-hotel-poster.jpg',
     previewImage: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
@@ -63,7 +62,7 @@ export const films: Films = [
   },
 
   {
-    id: nanoid(),
+    id: 4,
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
     posterImage: 'img/the-grand-budapest-hotel-poster.jpg',
     previewImage: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
@@ -83,7 +82,7 @@ export const films: Films = [
   },
 
   {
-    id: nanoid(),
+    id: 5,
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
     posterImage: 'img/the-grand-budapest-hotel-poster.jpg',
     previewImage: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
@@ -103,7 +102,7 @@ export const films: Films = [
   },
 
   {
-    id: nanoid(),
+    id: 6,
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
     posterImage: 'img/the-grand-budapest-hotel-poster.jpg',
     previewImage: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
@@ -123,7 +122,7 @@ export const films: Films = [
   },
 
   {
-    id: nanoid(),
+    id: 7,
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
     posterImage: 'img/the-grand-budapest-hotel-poster.jpg',
     previewImage: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
@@ -143,7 +142,7 @@ export const films: Films = [
   },
 
   {
-    id: nanoid(),
+    id: 8,
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
     posterImage: 'img/the-grand-budapest-hotel-poster.jpg',
     previewImage: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',

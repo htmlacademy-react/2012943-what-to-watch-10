@@ -10,7 +10,7 @@ type ReviewProps = {
 
 function AddReview({ film }: ReviewProps): JSX.Element {
   return (
-    <section className="film-card film-card--full " id={film.id}>
+    <section className="film-card film-card--full " id={String(film.id)}>
       <div className="film-card__header">
         <div className="film-card__bg">
           <img src={film.backgroundImage} alt='film' />
